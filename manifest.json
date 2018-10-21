@@ -1,0 +1,20 @@
+{
+  "name": "Messenger Preview",
+  "version": "0.1",
+  "description": "Preview the appearance of messages sent through Facebook Messenger.
+  Know how bold, italics, strikethrough, code, and math will appear.",
+  "permissions": [
+    "*://www.messenger.com/**"
+  ],
+  "icons": {
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.messenger.com/t/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": ["script.js"],
+  "manifest_version": 2
+}
