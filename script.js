@@ -8,7 +8,6 @@ let minDelay = 0;
 
 let changeable = true;
 let pendingChanges = false;
-let timestamp;
 let previewElement;
 
 createPreviewElement();
@@ -59,7 +58,7 @@ function preview(info, element) {
 		}]),
 		readReceipts: require("immutable").OrderedMap(),
 	});
-	require("ReactDOM").render(e, element)
+	require("ReactDOM").render(e, element);
 }
 
 function insertAfter(newNode, existingNode) {
@@ -186,7 +185,7 @@ function setup() {
 		childList: true,
 		// positive typing edits the existing node
 		characterData: true
-	}
+	};
 	let targetNode = getInputElement();
 	observer.observe(targetNode, config);
 
