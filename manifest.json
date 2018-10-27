@@ -4,14 +4,18 @@
   "description": "Preview the appearance of messages sent through Facebook Messenger.
   Know how bold, italics, strikethrough, code, and math will appear.",
   "permissions": [
-    "*://www.messenger.com/**"
+    "*://www.messenger.com/**",
+    "*://www.facebook.com/messages/**"
   ],
   "icons": {
     "128": "images/icon128.png"
   },
   "content_scripts": [
     {
-      "matches": ["*://www.messenger.com/t/*"],
+      "matches": [
+        "*://www.messenger.com/t/*",
+        "*://www.facebook.com/messages/**"
+      ],
       "js": ["content.js"]
     }
   ],
