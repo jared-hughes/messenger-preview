@@ -104,49 +104,14 @@ function biggest(elements) {
 	return Array.from(elements).reduce((a, b) => a.innerHTML.length < b.innerHTML.length ? b : a);
 }
 
-function isSelfMessage(message) {
-	// if parentNode is document or null, return false
-	if (message.parentNode == document || message.parentNode == null) {
-		return false;
-	} else if (message.getElementsByTagName("h5") !== null) {
-		// if message has an h5, then return true iff message.parentNode has only one child
-		return message.parentNode.childElementCount === 1;
-	} else {
-		// otherwise return recurse on parent node
-		return isSelfMessage(message.parentNode);
-	}
-	// the reasoning behind this is that the image specifying sender occurs as a
-	// sibling of an element with h5 as a child only if message is sent by someone else
-}
-
 function getAuthor() {
-	let selfMessage = document.querySelector("[data-tooltip-position=right][attachments]");
-	if (selfMessage === null) {
-		// tooltip might point up
-		for (let message of document.querySelectorAll("[attachments]")) {
-			if (isSelfMessage(message)) {
-				selfMessage = message;
-				break;
-			}
-		}
-	}
-	if (selfMessage === null) {
-		console.warn("You have not sent any messages in this conversation");
-		return "fbid:0";
-	} else {
-		let participants = selfMessage.getAttribute("participants");
-		return participants.match(/fbid:\d+/)[0];
-	}
+  // being accurate allows for the right profile image when isFromViewer = false
+	return "fbid:0";
 }
 
 function getThreadID() {
-	let anyMessage = document.querySelector("[attachments]");
-	if (anyMessage === null) {
-		console.warn("No one has sent any messages in this conversation");
-		return window.location.href.match(/\/([^/]*)$/)[1]; //extract from URL
-	} else {
-		return anyMessage.getAttribute("threadid");
-	}
+  // allows for the three dots/more options menu per message
+	return "fbid:0";
 }
 
 function getMessageList() {
@@ -161,7 +126,6 @@ function reShow() {
 	previewElement = null;
 	createPreviewElement();
 	insertAfter(previewElement, messageList);
-
 	preview({
 		message: getText(),
 		author: getAuthor(),
@@ -170,8 +134,7 @@ function reShow() {
 		isFromViewer: isFromViewer
 	}, previewElement);
 	// an empty element messes through margin/padding
-	let msg = previewElement.querySelector("[attachments]");
-	if (!previewElement || previewElement.clientHeight == 0 || !msg || msg.clientHeight == 0) {
+	if (!previewElement || previewElement.clientHeight == 0) {
 		removeElement(previewElement);
 	}
 	reflow(previewElement);
