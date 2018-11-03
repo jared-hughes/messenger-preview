@@ -75,7 +75,12 @@ function getInputElement() {
 }
 
 function getText() {
-	return getInputElement().innerText.slice(0, -1);
+  let text = getInputElement().innerText;
+  // sometimes .innerText just gives whitespace and would give a blank bubble
+  if (text.match(/^\s*$/)) {
+    return "";
+  }
+  return text;
 }
 
 function isAttached(el) {
