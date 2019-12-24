@@ -3,14 +3,7 @@ This *unofficial* extension has been created just for Chrome. I might modify it 
 to work in other browsers, but I'm just testing in Chrome for now.
 
 ## Installation
-While this is not published to the webstore yet, you could still download the
-extension to test it. Installation details are as follows:
-1. Clone the repository.
-2. Open chrome://extensions.
-3. Switch to developer mode (toggle in top right).
-4. Click the "load unpacked" button and select the folder you cloned.
-
-It should work after reloading Messenger once or twice
+See the [offering in Chrome webstore](https://chrome.google.com/webstore/detail/messenger-preview/cpimjhhigdjabaeklhlehfaghfeacibn).
 
 ## Usage
 Write messages as normal. As you type, you should see a light message appear
