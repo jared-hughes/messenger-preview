@@ -1,3 +1,7 @@
+# Update: Does not work with new versions of Messenger
+
+This extension no longer works as of December 16th, 2020. Messenger made extensive changes to their user interface, including disabling KaTeX. Since the KaTeX preview was my main motivation for making this, I have no intentions to fix this extension.
+
 # Messenger Preview
 This *unofficial* extension has been created just for Chrome. I might modify it eventually
 to work in other browsers, but I'm just testing in Chrome for now.
